@@ -3,14 +3,46 @@
 
 ## Information for Packagers
 
-- This is serial version 1.2.3. This is not a semver version number.
+- This is serial version 1.2.4. This is not a semver version number.
 
-- This is shared object library version `libxlsxwriter.so.10`. This should be
+- This is shared object library version `libxlsxwriter.so.11`. This should be
   updated automatically via `make` and `cmake` as part of the build process.
   This version contains ABI changes since the previous release.
 
 - Please report any downstream patches back upstream to help improve the overall
   build process.
+
+
+## 1.2.4 Jan 6 2026
+
+- Added validation of `lxw_datetime` fields to ensure that they are
+  within Excel's allowable ranges.
+
+  Issue [#491][gh_491].
+
+  [gh_491]: https://github.com/jmcnamara/libxlsxwriter/issues/491
+
+- Fixed an issue where setting the x or y scales to math.h
+  `INFINITY` resulted in an infinite loop.
+
+  Issue [#490][gh_490].
+
+  [gh_490]: https://github.com/jmcnamara/libxlsxwriter/issues/490
+
+- Added validation checks for various enum values.
+
+  Issue [#487][gh_487].
+
+  [gh_487]: https://github.com/jmcnamara/libxlsxwriter/issues/487
+
+- Fixed handling of invalid chart types.
+
+  Issue [#486][gh_486].
+
+  [gh_486]: https://github.com/jmcnamara/libxlsxwriter/issues/486
+
+- zig: Updated to Zig 0.15.0. Also, Zig build refactored for compatibility with
+  v0.15.1 - 0.16.0-dev.
 
 
 ## 1.2.3 Jun 30 2025
@@ -55,19 +87,6 @@
   [gh_471]: https://github.com/jmcnamara/libxlsxwriter/issues/471
 
 - Fix buffer overflow in Table formula expansion.
-
-### Packagers:
-
-- This is serial version 1.2.1. This is not a semver version.
-
-- This is shared object library version `libxlsxwriter.so.8`. This should be
-  updated automatically via `make` and `cmake` as part of the build process.
-
-- This version tries to improve the overall `cmake` build process when using
-  minizip via the `-DUSE_SYSTEM_MINIZIP=ON` configuration option.
-
-- Please report any downstream patches back upstream to help improve the overall
-  build process.
 
 
 ## 1.2.0 January 11 2025
